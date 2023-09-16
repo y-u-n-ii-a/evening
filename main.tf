@@ -15,7 +15,7 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = local.vpc_cidr
+  cidr_block              = local.subnet_cidr
   map_public_ip_on_launch = true
   tags = {
     Name = "${var.environment}-public-subnet"
@@ -24,7 +24,7 @@ resource "aws_subnet" "public" {
 
 resource "aws_subnet" "private" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = local.vpc_cidr
+  cidr_block              = local.subnet_cidr
   map_public_ip_on_launch = false
   tags = {
     Name = "${var.environment}-private-subnet"
@@ -45,7 +45,7 @@ resource "aws_security_group" "rainy_evening" {
       from_port   = ingress.value
       to_port     = ingress.value
       protocol    = ingress.key
-      cidr_blocks = [local.vpc_cidr]
+      cidr_blocks = [local.subnet_cidr]
     }
   }
 
