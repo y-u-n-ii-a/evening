@@ -9,7 +9,9 @@ provider "aws" {
 }
 
 # --------- network ---------
-resource "aws_vpc" "vpc" {}
+resource "aws_vpc" "vpc" {
+  cidr_block = local.vpc_cidr
+}
 
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.vpc.id
