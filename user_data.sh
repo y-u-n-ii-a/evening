@@ -6,8 +6,7 @@ yum -y install httpd
 cat <<EOF > /var/www/html/index.html
 <html>
 <body bgcolor="black">
-<h2><font color="gold">Build by Power of Terraform <font color="red"> v0.12</font></h2><br><p>
-
+<h1>Okay I'm just trying</h1><br><p>
 <font color="magenta">
 <b>Version 3.0</b>
 </body>
