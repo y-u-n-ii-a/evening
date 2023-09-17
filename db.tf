@@ -1,7 +1,3 @@
-#locals {
-#  db_user_names = ["yuna", "anton"]
-#}
-
 resource "aws_db_instance" "default" {
   allocated_storage           = 10
   db_name                     = "mydb"
